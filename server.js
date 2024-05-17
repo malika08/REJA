@@ -5,6 +5,17 @@ import express from "express";
 const app = express();
 
 import http from "http";
+
+import fs from "fs";
+
+let user;
+fs.readFile("database/user.json", "utf8", (err, data) => {
+  if (err) {
+    console.log("ERROR:", err);
+  } else {
+    user = JSON.parse(data);
+  }
+});
 //1-step
 app.use(express.static("public"));
 
@@ -28,6 +39,10 @@ app.get("/hello", function (req, res) {
 
 app.get("/gifts", function (req, res) {
   res.end(`Siz sovg'alar bo'limidasiz`);
+});
+
+app.get("/author", (req, res) => {
+  res.render(`author`, { user: user });
 });
 
 app.get("/", function (req, res) {
