@@ -76,3 +76,21 @@ async function run() {
 }
 run();
 console.log(`passed here 1`);
+
+/*Masalani izohi
+A-TASK: 
+
+Shunday 2 parametrli function tuzing, hamda birinchi parametrdagi letterni ikkinchi parametrdagi sozdan qatnashga sonini return qilishi kerak boladi.
+MASALAN countLetter("e", "engineer") 3ni return qiladi.*/
+
+function countLetter(harf, soz) {
+  let count = 0;
+  for (let i = 0; i < soz.length; i++) {
+    if (soz[i] === harf) {
+      count++;
+    }
+  }
+  return count;
+}
+
+console.log(countLetter("e", "engineer"));
