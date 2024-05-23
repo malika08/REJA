@@ -81,7 +81,7 @@ console.log(`passed here 1`);
 A-TASK: 
 
 Shunday 2 parametrli function tuzing, hamda birinchi parametrdagi letterni ikkinchi parametrdagi sozdan qatnashga sonini return qilishi kerak boladi.
-MASALAN countLetter("e", "engineer") 3ni return qiladi.*/
+MASALAN countLetter("e", "engineer") 3ni return qiladi.
 
 function countLetter(harf, soz) {
   let count = 0;
@@ -93,4 +93,23 @@ function countLetter(harf, soz) {
   return count;
 }
 
-console.log(countLetter("e", "engineer"));
+console.log(countLetter("e", "engineer")); */
+
+/*B-TASK: 
+
+Shunday function tuzing, u 1ta string parametrga ega bolsin, hamda osha stringda qatnashgan raqamlarni sonini bizga return qilsin.
+MASALAN countDigits("ad2a54y79wet0sfgb9") 7ni return qiladi.
+ */
+function raqamlarSanash(str) {
+  let count = 0;
+
+  for (let i = 0; i < str.length; i++) {
+    if (!isNaN(parseInt(str[i]))) {
+      count++;
+    }
+  }
+
+  return count;
+}
+
+console.log(raqamlarSanash("ad2a54y79wet0sfgb9"));
