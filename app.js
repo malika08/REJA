@@ -8,7 +8,9 @@ import fs from "fs";
 
 //mongodb connection
 import { db } from "./server.js";
-import { log } from "console";
+//import { log } from "console";
+import mongodb from "mongodb";
+//import { MongoClient } from "mongodb";
 
 let user;
 fs.readFile("database/user.json", "utf8", (err, data) => {
@@ -66,13 +68,21 @@ app.post("/create-item", (req, res) => {
   console.log("user entered /create-item");
   const new_reja = req.body.reja;
   db.collection("plans").insertOne({ reja: new_reja }, (err, data) => {
-    if (err) {
-      console.log(err);
-      res.end("Something went wrong");
-    } else {
-      res.end("Successfully done");
-    }
+    res.json(data.ops[0]);
   });
+});
+
+app.post("/delete-item", (req, res) => {
+  const id = req.body.id;
+  //console.log(id);
+  db.collection("plans").deleteOne(
+    { _id: new mongodb.ObjectId(id) },
+    function (err, data) {
+      res.json({
+        state: "success",
+      });
+    }
+  );
 });
 
 export default app;

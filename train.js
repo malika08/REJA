@@ -1,4 +1,6 @@
 console.log(`Train page starts!`);
+import moment from "moment";
+/* callback and asynch fuction lessons:
 console.log("Jack Ma maslahatlari!");
 
 const list = [
@@ -9,7 +11,7 @@ const list = [
   "yoshlarga investitsiya qiling", //50-60
   "endi dam oling, foydasi yo'q endi", // 60
 ];
-/*CAll Back function
+CAll Back function
 function maslahatBering(a, callback) {
   if (typeof a !== "number") callback("insert a number", null);
   else if (a <= 20) callback(null, list[0]);
@@ -20,7 +22,7 @@ function maslahatBering(a, callback) {
   else {
     callback(null, list[5]);
   }
-  //   else {
+  /?   else {
   //     setTimeout(function () {
   //       callback(null, list[5]);
   //     }, 5000);
@@ -35,7 +37,7 @@ maslahatBering(66, (err, data) => {
   }
 });
 console.log(`passed here 1`);
-*/
+
 async function maslahatBering(a) {
   if (typeof a !== "number") throw new Error("insert a number");
   else if (a <= 20) return list[0];
@@ -64,7 +66,7 @@ maslahatBering(25)
 
   .catch((err) => {
     console.log("Error:", err);
-  }); */
+  }); 
 // call sectionda asyn function ishlatish
 async function run() {
   let javob = await maslahatBering(65);
@@ -75,9 +77,10 @@ async function run() {
   console.log(javob);
 }
 run();
-console.log(`passed here 1`);
+console.log(`passed here 1`); */
 
-/*Masalani izohi
+/*A_TASK: 
+Masalani izohi
 A-TASK: 
 
 Shunday 2 parametrli function tuzing, hamda birinchi parametrdagi letterni ikkinchi parametrdagi sozdan qatnashga sonini return qilishi kerak boladi.
@@ -99,7 +102,7 @@ console.log(countLetter("e", "engineer")); */
 
 Shunday function tuzing, u 1ta string parametrga ega bolsin, hamda osha stringda qatnashgan raqamlarni sonini bizga return qilsin.
 MASALAN countDigits("ad2a54y79wet0sfgb9") 7ni return qiladi.
- */
+ 
 function raqamlarSanash(str) {
   let count = 0;
 
@@ -112,4 +115,67 @@ function raqamlarSanash(str) {
   return count;
 }
 
-console.log(raqamlarSanash("ad2a54y79wet0sfgb9"));
+console.log(raqamlarSanash("ad2a54y79wet0sfgb9")); */
+
+/* C_TASK: Shunday class tuzing tuzing nomi Shop, va uni constructoriga 3 hil mahsulot pass bolsin, hamda classning 3ta methodi bolsin, biri qoldiq, biri sotish va biri qabul. Har bir method ishga tushgan vaqt ham log qilinsin.
+MASALAN: const shop = new Shop(4, 5, 2); shop.qoldiq() return hozir 20:40da 4ta non, 5ta lagmon va 2ta cola mavjud! shop.sotish('non', 3) & shop.qabul('cola', 4) & shop.qoldiq() return hozir 20:50da 1ta non, 5ta lagmon va 6ta cola mavjud! */
+class Shop {
+  constructor(non, lagmon, cola) {
+    this.non = non;
+    this.lagmon = lagmon;
+    this.cola = cola;
+  }
+  qoldiq() {
+    const vaqt = moment().format("HH:mm");
+    console.log(
+      `Qoldiq: Hozir: ${vaqt}  ${this.non} ta non, ${this.lagmon} ta lagmon, va ${this.cola} ta cola mavjud.`
+    );
+  }
+
+  sotish(mahsulot, miqdor) {
+    const vaqt = moment().format("HH:mm");
+
+    if (mahsulot === "non") {
+      if (this.non >= miqdor) {
+        this.non -= miqdor;
+        console.log(` ${miqdor} ta non  ${vaqt} da sotildi!`);
+      } else {
+        console.log(` ${vaqt} da sotishga yetarli non yo'q!`);
+      }
+    } else if (mahsulot === "lagmon") {
+      if (this.lagmon >= miqdor) {
+        this.lagmon -= miqdor;
+        console.log(` ${miqdor} ta lagmon  ${vaqt} da sotildi!`);
+      } else {
+        console.log(`${vaqt} da sotishga yetarli lagmon yo'q!`);
+      }
+    } else if (mahsulot === "cola") {
+      if (this.cola >= miqdor) {
+        this.cola -= miqdor;
+        console.log(`${miqdor} ta cola  ${vaqt} da sotildi!`);
+      } else {
+        console.log(`${vaqt} da sotishga yetarli cola yo'q!`);
+      }
+    }
+  }
+  qabul(mahsulot, miqdor) {
+    const vaqt = moment().format("HH:mm");
+
+    if (mahsulot === "non") {
+      this.non += miqdor;
+      console.log(` ${miqdor} ta non  ${vaqt} da qabul qilindi!`);
+    } else if (mahsulot === "lagmon") {
+      this.lagmon += miqdor;
+      console.log(`${miqdor} ta lagmon  ${vaqt} da qabul qilindi!`);
+    } else if (mahsulot === "cola") {
+      this.cola += miqdor;
+      console.log(`${miqdor} ta cola  ${vaqt} da qabul qilindi!`);
+    }
+  }
+}
+
+const shop = new Shop(4, 5, 2);
+shop.qoldiq();
+shop.sotish("non", 3);
+shop.qabul("cola", 4);
+shop.qoldiq();
