@@ -1,6 +1,3 @@
-//import axios from "axios";
-//import { response } from "express";
-
 console.log("FrontEndJS started working!");
 
 function itemTemplate(item) {
