@@ -1,5 +1,5 @@
 console.log(`Train page starts!`);
-import moment from "moment";
+//import moment from "moment";
 /* callback and asynch fuction lessons:
 console.log("Jack Ma maslahatlari!");
 
@@ -184,8 +184,7 @@ shop.qoldiq();
 /*D-TASK: 
 
 Shunday function tuzing, u 2ta string parametr ega bolsin, hamda agar har ikkala string bir hil harflardan iborat bolsa true aks holda false qaytarsin
-MASALAN checkContent("mitgroup", "gmtiprou") return qiladi true; */
-
+MASALAN checkContent("mitgroup", "gmtiprou") return qiladi true; 
 function checkContent(a, b) {
   if (a.length !== b.length) {
     return false;
@@ -197,4 +196,14 @@ function checkContent(a, b) {
 }
 
 console.log(checkContent("mitgroup", "gmtiprou"));
-console.log(checkContent("hello", "world"));
+console.log(checkContent("hello", "world")); */
+/*E-TASK: 
+
+Shunday function tuzing, u bitta string argumentni qabul qilib osha stringni teskari qilib return qilsin.
+MASALAN: getReverse("hello") return qilsin "olleh" */
+
+function getReverse(params) {
+  return params.split("").reverse().join("");
+}
+
+console.log(getReverse("hello"));
