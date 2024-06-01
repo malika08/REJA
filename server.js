@@ -17,7 +17,7 @@ mongodb.connect(
       db = client.db("REJA");
 
       const server = http.createServer(app);
-      const PORT = process.env.PORT || 3000;
+      const PORT = 7008;
       server.listen(PORT, function () {
         console.log(
           `the server is running sucessfully on port ${PORT}, http://localhost:${PORT}`
