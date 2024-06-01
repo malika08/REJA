@@ -186,24 +186,50 @@ shop.qoldiq();
 Shunday function tuzing, u 2ta string parametr ega bolsin, hamda agar har ikkala string bir hil harflardan iborat bolsa true aks holda false qaytarsin
 MASALAN checkContent("mitgroup", "gmtiprou") return qiladi true; 
 function checkContent(a, b) {
-  if (a.length !== b.length) {
-    return false;
-  }
+  // if (a.length !== b.length) {
+  //   return false;
+  // }
   const arrayA = a.split("");
   const arrayB = b.split("");
 
   return arrayA.every((w) => arrayB.includes(w));
 }
 
-console.log(checkContent("mitgroup", "gmtiprou"));
+console.log(checkContent("mitgroooup", "gmtiiiiiiiiprou"));
 console.log(checkContent("hello", "world")); */
 /*E-TASK: 
 
 Shunday function tuzing, u bitta string argumentni qabul qilib osha stringni teskari qilib return qilsin.
-MASALAN: getReverse("hello") return qilsin "olleh" */
+MASALAN: getReverse("hello") return qilsin "olleh" 
 
 function getReverse(params) {
   return params.split("").reverse().join("");
 }
 
 console.log(getReverse("hello"));
+*/
+/*F-TASK: 
+
+Shunday findDoublers function tuzing, unga faqat bitta string argument pass bolib, agar stringda bir hil harf qatnashgan bolsa true, qatnashmasa false qaytarishi kerak.
+MASALAN: getReverse("hello") return true return qiladi
+
+
+*/
+function findDoublers(string) {
+  let korilganHarf = {};
+
+  for (let i = 0; i < string.length; i++) {
+    let harf = string[i];
+
+    if (korilganHarf[harf]) {
+      return true;
+    }
+
+    korilganHarf[harf] = true;
+  }
+
+  return false;
+}
+
+console.log(findDoublers("hello"));
+console.log(findDoublers("world"));
